@@ -1,0 +1,155 @@
+
+跑Carnd-Behavioral-cloning, GPU版本：
+
+------------------------------------------------------------------------------
+
+winterslong@winterslong-N8xxEP6:~/Downloads/flash_player$ top
+
+top - 18:43:46 up  3:54,  1 user,  load average: 1.66, 1.56, 1.55
+Tasks: 349 total,   1 running, 264 sleeping,   0 stopped,   1 zombie
+%Cpu(s):  9.0 us,  4.2 sy,  0.0 ni, 86.8 id,  0.0 wa,  0.0 hi,  0.1 si,  0.0 st
+KiB Mem : 16267548 total,   233392 free,  7593396 used,  8440760 buff/cache
+KiB Swap: 15625212 total, 15623676 free,     1536 used.  8090944 avail Mem 
+
+  PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND                                             
+24487 winters+  20   0 23.492g 1.800g 427032 S 127.2 11.6  14:02.11 python                                              
+ 1562 winters+  20   0 5728832 656288  63636 S  19.6  4.0  93:08.05 gnome-shell                                         
+ 1336 root      20   0 1474284 111192  66144 S   7.6  0.7  19:00.47 Xorg                                                
+ 1337 root     -51   0       0      0      0 S   3.7  0.0   2:13.59 irq/146-nvidia                                      
+24658 root      20   0       0      0      0 I   2.0  0.0   0:00.98 kworker/8:0                                         
+ 1892 winters+  20   0  851640  44608  26236 S   1.7  0.3   1:06.84 gnome-terminal-                                     
+21977 winters+  20   0 1881128 291160 165092 S   1.7  1.8   0:51.71 Web Content                                         
+21878 winters+  20   0 2315532 337564 183456 S   1.0  2.1   2:55.94 firefox                                             
+22136 winters+  20   0 1909052 285744 137432 S   0.7  1.8   1:00.02 Web Content                                         
+  901 root      20   0   70664   4632   3884 S   0.3  0.0   0:06.59 systemd-logind                                      
+  909 root      20   0    4552    780    720 S   0.3  0.0   0:22.54 acpid                                               
+ 7214 winters+  20   0  845560  43984  27464 S   0.3  0.3   1:21.07 psensor                                             
+ 8831 winters+  20   0  592052  38976  24732 S   0.3  0.2   0:18.33 baobab                                              
+    1 root      20   0  225552   7276   4688 S   0.0  0.0   0:09.21 systemd                                             
+    2 root      20   0       0      0      0 S   0.0  0.0   0:00.01 kthreadd                                            
+    4 root       0 -20       0      0      0 I   0.0  0.0   0:00.00 kworker/0:0H                                        
+    6 root       0 -20       0      0      0 I   0.0  0.0   0:00.00 mm_percpu_wq                                        
+    7 root      20   0       0      0      0 S   0.0  0.0   0:00.76 ksoftirqd/0                                         
+    8 root      20   0       0      0      0 I   0.0  0.0   0:08.03 rcu_sched                                           
+    9 root      20   0       0      0      0 I   0.0  0.0   0:00.00 rcu_bh                                              
+   10 root      rt   0       0      0      0 S   0.0  0.0   0:00.03 migration/0                                         
+   11 root      rt   0       0      0      0 S   0.0  0.0   0:00.02 watchdog/0                                          
+   12 root      20   0       0      0      0 S   0.0  0.0   0:00.00 cpuhp/0                                             
+   13 root      20   0       0      0      0 S   0.0  0.0   0:00.00 cpuhp/1                                             
+   14 root      rt   0       0      0      0 S   0.0  0.0   0:00.02 watchdog/1                                          
+   15 root      rt   0       0      0      0 S   0.0  0.0   0:00.03 migration/1                                         
+   16 root      20   0       0      0      0 S   0.0  0.0   0:00.79 ksoftirqd/1                                         
+   18 root       0 -20       0      0      0 I   0.0  0.0   0:00.00 kworker/1:0H                                        
+   19 root      20   0       0      0      0 S   0.0  0.0   0:00.00 cpuhp/2                                             
+   20 root      rt   0       0      0      0 S   0.0  0.0   0:00.02 watchdog/2                                          
+   21 root      rt   0       0      0      0 S   0.0  0.0   0:00.03 migration/2                                         
+winterslong@winterslong-N8xxEP6:~/Downloads/flash_player$ 
+
+---------------------------------------------------------------------------------------------------------------------
+
+(carnd-term1-gpu-tf18-py36) winterslong@winterslong-N8xxEP6:~/work/jupyter_notebook/udacity/wlong/CarND-Behavioral-Cloning-P3$ ls
+bak   data.zip  examples  model_nv_lenet.ipynb    model.py   run_nv_optdata_e1.mp4  simu_data  writeup_report.md
+data  drive.py  LICENSE   model_nv_optdata_e1.h5  README.md  set_git.sh             video.py   writeup_report.pdf
+(carnd-term1-gpu-tf18-py36) winterslong@winterslong-N8xxEP6:~/work/jupyter_notebook/udacity/wlong/CarND-Behavioral-Cloning-P3$ 
+(carnd-term1-gpu-tf18-py36) winterslong@winterslong-N8xxEP6:~/work/jupyter_notebook/udacity/wlong/CarND-Behavioral-Cloning-P3$ python model.py 
+directory= ./data/data
+    center= 8036
+    left  = 8036
+    right = 8036
+    steerings = 8036
+Total:
+centerPaths : 8036
+leftPaths   : 8036
+rightPaths  : 8036
+steerings   : 8036
+
+Total Images   : 24108
+Total steerings: 24108
+Using TensorFlow backend.
+2018-12-23 18:32:49.955440: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:898] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2018-12-23 18:32:49.955833: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1356] Found device 0 with properties: 
+name: GeForce GTX 1060 major: 6 minor: 1 memoryClockRate(GHz): 1.6705
+pciBusID: 0000:01:00.0
+totalMemory: 5.94GiB freeMemory: 5.70GiB
+2018-12-23 18:32:49.955848: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-12-23 18:32:50.122350: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-12-23 18:32:50.122378: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-12-23 18:32:50.122385: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-12-23 18:32:50.122528: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/device:GPU:0 with 5482 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1060, pci bus id: 0000:01:00.0, compute capability: 6.1)
+/home/winterslong/anaconda3/envs/carnd-term1-gpu-tf18-py36/lib/python3.6/site-packages/matplotlib/font_manager.py:273: UserWarning: Matplotlib is building the font cache using fc-list. This may take a moment.
+  warnings.warn('Matplotlib is building the font cache using fc-list. This may take a moment.')
+/home/winterslong/anaconda3/envs/carnd-term1-gpu-tf18-py36/lib/python3.6/site-packages/matplotlib/font_manager.py:273: UserWarning: Matplotlib is building the font cache using fc-list. This may take a moment.
+  warnings.warn('Matplotlib is building the font cache using fc-list. This may take a moment.')
+Train samples: 19286
+Validation samples: 4822
+######### In nVidia Model ######### 
+model.py:149: UserWarning: Update your `Conv2D` call to the Keras 2 API: `Conv2D(24, (5, 5), activation="relu", strides=(2, 2))`
+  model.add(Convolution2D(24,5,5, subsample=(2,2), activation='relu'))
+model.py:150: UserWarning: Update your `Conv2D` call to the Keras 2 API: `Conv2D(36, (5, 5), activation="relu", strides=(2, 2))`
+  model.add(Convolution2D(36,5,5, subsample=(2,2), activation='relu'))
+model.py:151: UserWarning: Update your `Conv2D` call to the Keras 2 API: `Conv2D(48, (5, 5), activation="relu", strides=(2, 2))`
+  model.add(Convolution2D(48,5,5, subsample=(2,2), activation='relu'))
+model.py:152: UserWarning: Update your `Conv2D` call to the Keras 2 API: `Conv2D(64, (3, 3), activation="relu")`
+  model.add(Convolution2D(64,3,3, activation='relu'))
+model.py:153: UserWarning: Update your `Conv2D` call to the Keras 2 API: `Conv2D(64, (3, 3), activation="relu")`
+  model.add(Convolution2D(64,3,3, activation='relu'))
+WARNING:tensorflow:From /home/winterslong/anaconda3/envs/carnd-term1-gpu-tf18-py36/lib/python3.6/site-packages/keras/backend/tensorflow_backend.py:1255: calling reduce_prod (from tensorflow.python.ops.math_ops) with keep_dims is deprecated and will be removed in a future version.
+Instructions for updating:
+keep_dims is deprecated, use keepdims instead
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+lambda_1 (Lambda)            (None, 160, 320, 3)       0         
+_________________________________________________________________
+cropping2d_1 (Cropping2D)    (None, 90, 320, 3)        0         
+_________________________________________________________________
+conv2d_1 (Conv2D)            (None, 43, 158, 24)       1824      
+_________________________________________________________________
+conv2d_2 (Conv2D)            (None, 20, 77, 36)        21636     
+_________________________________________________________________
+conv2d_3 (Conv2D)            (None, 8, 37, 48)         43248     
+_________________________________________________________________
+conv2d_4 (Conv2D)            (None, 6, 35, 64)         27712     
+_________________________________________________________________
+conv2d_5 (Conv2D)            (None, 4, 33, 64)         36928     
+_________________________________________________________________
+flatten_1 (Flatten)          (None, 8448)              0         
+_________________________________________________________________
+dense_1 (Dense)              (None, 100)               844900    
+_________________________________________________________________
+dense_2 (Dense)              (None, 50)                5050      
+_________________________________________________________________
+dense_3 (Dense)              (None, 10)                510       
+_________________________________________________________________
+dense_4 (Dense)              (None, 1)                 11        
+=================================================================
+Total params: 981,819
+Trainable params: 981,819
+Non-trainable params: 0
+_________________________________________________________________
+WARNING:tensorflow:From /home/winterslong/anaconda3/envs/carnd-term1-gpu-tf18-py36/lib/python3.6/site-packages/keras/backend/tensorflow_backend.py:1340: calling reduce_mean (from tensorflow.python.ops.math_ops) with keep_dims is deprecated and will be removed in a future version.
+Instructions for updating:
+keep_dims is deprecated, use keepdims instead
+model.py:204: UserWarning: The semantics of the Keras 2 argument `steps_per_epoch` is not the same as the Keras 1 argument `samples_per_epoch`. `steps_per_epoch` is the number of batches to draw from the generator at each epoch. Basically steps_per_epoch = samples_per_epoch/batch_size. Similarly `nb_val_samples`->`validation_steps` and `val_samples`->`steps` arguments have changed. Update your method calls accordingly.
+  verbose=1)
+model.py:204: UserWarning: Update your `fit_generator` call to the Keras 2 API: `fit_generator(<generator..., validation_data=<generator..., verbose=1, steps_per_epoch=19286, epochs=2, validation_steps=4822)`
+  verbose=1)
+Epoch 1/2
+2018-12-23 18:32:52.034018: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1435] Adding visible gpu devices: 0
+2018-12-23 18:32:52.034062: I tensorflow/core/common_runtime/gpu/gpu_device.cc:923] Device interconnect StreamExecutor with strength 1 edge matrix:
+2018-12-23 18:32:52.034072: I tensorflow/core/common_runtime/gpu/gpu_device.cc:929]      0 
+2018-12-23 18:32:52.034080: I tensorflow/core/common_runtime/gpu/gpu_device.cc:942] 0:   N 
+2018-12-23 18:32:52.034169: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1053] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 5482 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1060, pci bus id: 0000:01:00.0, compute capability: 6.1)
+19286/19286 [==============================] - 1326s 69ms/step - loss: 0.0057 - val_loss: 0.0096
+Epoch 2/2
+19286/19286 [==============================] - 1365s 71ms/step - loss: 8.3155e-04 - val_loss: 0.0094
+dict_keys(['val_loss', 'loss'])
+Loss
+[0.0057404195104247503, 0.00083151215408151899]
+Validation Loss
+[0.0096277077364021382, 0.009372757501324264]
+(carnd-term1-gpu-tf18-py36) winterslong@winterslong-N8xxEP6:~/work/jupyter_notebook/udacity/wlong/CarND-Behavioral-Cloning-P3$ 
+
+
+
+
